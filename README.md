@@ -65,10 +65,15 @@ Azure-SSIS
 The following table describes the capabilities and network support for each of the integration runtime types:
 
 INTEGRATION RUNTIME TYPES
-IR type	Public network	Private network
-Azure	Data Flow Data movement Activity dispatch	
-Self-hosted	Data movement Activity dispatch	Data movement Activity dispatch
-Azure-SSIS	SSIS package execution	SSIS package execution
+
+| IR type     | Public Network                            | Private Network                 |   |   |
+|-------------|-------------------------------------------|---------------------------------|---|---|
+| Azure       | Data Flow Data movement Activity Dispatch |                                 |   |   |
+| Self-hosted | Data movement Activity dispatch           | Data movement Activity dispatch |   |   |
+| Azure-SSIS  | SSIS package execution                    | SSIS package execution          |   |   |
+
+
+
 Determining which integration runtime to use
 There are a range of factors that affect the Integration Runtime that you will use. The following is a guide that will help you select the right IR
 
