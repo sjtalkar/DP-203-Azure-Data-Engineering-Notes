@@ -111,3 +111,29 @@ Virtual networks allow secure communication between Azure services, or with serv
 
 
 ### [Transformation Types](https://docs.microsoft.com/en-us/learn/modules/code-free-transformation-scale/3-describe-transformation-types)
+
+
+
+With decoupled storage and compute, when using Synapse SQL one can benefit from independent sizing of compute power irrespective of your storage needs. For serverless SQL pool scaling is done automatically, while for dedicated SQL pool one can:
+
+Grow or shrink compute power, within a dedicated SQL pool, without moving data.
+Pause compute capacity while leaving data intact, so you only pay for storage.
+Resume compute capacity during operational hours.
+
+
+Serverless SQL pool allows you to query your data lake files, while dedicated SQL pool allows you to query and ingest data from your data lake files. When data is ingested into dedicated SQL pool, the data is sharded into distributions to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+
+Hash
+Round Robin
+Replicate
+
+
+The serverless SQL pool Control node utilizes Distributed Query Processing (DQP) engine to optimize and orchestrate distributed execution of user query by splitting it into smaller queries that will be executed on Compute nodes. Each small query is called task and represents distributed execution unit. It reads file(s) from storage, joins results from other tasks, groups, or orders data retrieved from other tasks.
+
+The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results.
+
+With decoupled storage and compute, when using Synapse SQL one can benefit from independent sizing of compute power irrespective of your storage needs. For serverless SQL pool scaling is done automatically, while for dedicated SQL pool one can:
+
+Grow or shrink compute power, within a dedicated SQL pool, without moving data.
+Pause compute capacity while leaving data intact, so you only pay for storage.
+Resume compute capacity during operational hours.
