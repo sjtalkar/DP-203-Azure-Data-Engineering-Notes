@@ -134,6 +134,68 @@ The Compute nodes store all user data in Azure Storage and run the parallel quer
 
 With decoupled storage and compute, when using Synapse SQL one can benefit from independent sizing of compute power irrespective of your storage needs. For serverless SQL pool scaling is done automatically, while for dedicated SQL pool one can:
 
-Grow or shrink compute power, within a dedicated SQL pool, without moving data.
-Pause compute capacity while leaving data intact, so you only pay for storage.
-Resume compute capacity during operational hours.
+- Grow or shrink compute power, within a dedicated SQL pool, without moving data.
+- Pause compute capacity while leaving data intact, so you only pay for storage.
+- Resume compute capacity during operational hours.
+
+
+### Serverless SQL pool 
+
+It is a distributed data processing system, built for large-scale data and computational functions. Serverless SQL pool enables you to analyze your Big Data in seconds to minutes, depending on the workload. Serverless SQL pool is serverless, hence there's no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created.
+There is no charge for resources reserved, you are only being charged for the data processed by queries you run, hence this model is a true pay-per-use model.
+
+ It is suitable for the following scenarios:
+
+- Basic discovery and exploration - Quickly reason about the data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
+- Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data. Learn more about creating logical data warehouse.
+- Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can be fed to BI and other tools, or loaded into a relational data store (Synapse SQL databases, Azure SQL Database, etc.).
+
+- Databases - serverless SQL pool endpoint can have multiple databases.
+- Schemas - Within a database, there can be one or many object ownership groups called schemas.
+- Views, stored procedures, inline table value functions
+- External resources – data sources, file formats, and tables
+
+Supported T-SQL:
+
+- Full SELECT surface area is supported, including a majority of SQL functions
+- CETAS - CREATE EXTERNAL TABLE AS SELECT
+- DDL statements related to views and security only
+
+
+Serverless SQL pool has no local storage, only metadata objects are stored in databases. Therefore, T-SQL related to the following concepts isn't supported:
+
+- Tables
+- Triggers
+- Materialized views
+- DDL statements other than ones related to views and security
+- DML statements
+
+Azure Active Directory integration and multi-factor authentication
+Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with Azure Active Directory integration. This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports multi-factor authentication (MFA) to increase data and application security while supporting a single sign-on process.
+
+### DEDICATED SQL POOL
+
+Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics. 
+Once your dedicated SQL pool is created, you can import big data with simple PolyBase T-SQL queries, and then use the power of the distributed query engine to run high-performance analytics.
+
+Dedicated SQL pool (formerly SQL DW) stores data in relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days.
+
+
+| Dedicated                                                      | Serverless                                                                                                          | From                                                                               |
+|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| Tables                                                         | Yes                                                                                                                 | No, serverless model can query only external data placed on Azure Storage          |
+| Views                                                          | Yes. Views can use query language elements that are available in dedicated model.                                   | Yes. Views can use query language elements that are available in serverless model. |
+| Schemas                                                        | Yes                                                                                                                 | Yes                                                                                |
+| Temporary tables                                               | Yes                                                                                                                 | No                                                                                 |
+| Procedures                                                     | Yes                                                                                                                 | Yes                                                                                |
+| Functions                                                      | Yes                                                                                                                 | Yes, only inline table-valued functions.                                           |
+| Triggers                                                       | No                                                                                                                  | No                                                                                 |
+| External tables                                                | Yes. See supported data formats.                                                                                    | Yes. See supported data formats.                                                   |
+| Caching queries                                                | Yes, multiple forms (SSD-based caching, in-memory, resultset caching). In addition, Materialized View are supported | No                                                                                 |
+| Table variables                                                | No, use temporary tables                                                                                            | No                                                                                 |
+| Table distribution                                             | Yes                                                                                                                 | No                                                                                 |
+| Table indexes                                                  | Yes                                                                                                                 | No                                                                                 |
+| Table partitions                                               | Yes                                                                                                                 | No                                                                                 |
+| Statistics                                                     | Yes                                                                                                                 | Yes                                                                                |
+| Workload management, resource classes, and concurrency control | Yes                                                                                                                 | No                                                                                 |
+| Cost control                                                   | Yes, using scale-up and scale-down actions.                                                                         | Yes, using the Azure portal or T-SQL procedure.                                    |
