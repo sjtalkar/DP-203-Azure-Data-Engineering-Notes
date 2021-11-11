@@ -222,3 +222,5 @@ https://databricks.com/notebooks/segment-p13n//sg_03_clustering.html#
 
 https://databricks.com/de/notebooks/segment-p13n/sg_02_feature_engineering.html
 
+https://www.kaggle.com/frtgnn/dunnhumby-the-complete-journeyc
+
