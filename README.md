@@ -199,3 +199,16 @@ Dedicated SQL pool (formerly SQL DW) stores data in relational tables with colum
 | Statistics                                                     | Yes                                                                                                                 | Yes                                                                                |
 | Workload management, resource classes, and concurrency control | Yes                                                                                                                 | No                                                                                 |
 | Cost control                                                   | Yes, using scale-up and scale-down actions.                                                                         | Yes, using the Azure portal or T-SQL procedure.                                    |
+
+
+
+
+
+
+Databricks kkbox churn
+
+https://databricks.com/notebooks/churn/1-data-preparation.html
+
+https://databricks.com/notebooks/churn/2-feature-engineering.html
+
+https://databricks.com/notebooks/churn/3-model-selection.html
