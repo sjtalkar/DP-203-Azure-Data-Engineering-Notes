@@ -212,3 +212,13 @@ https://databricks.com/notebooks/churn/1-data-preparation.html
 https://databricks.com/notebooks/churn/2-feature-engineering.html
 
 https://databricks.com/notebooks/churn/3-model-selection.html
+
+
+Clustering
+
+https://databricks.com/notebooks/segment-p13n/sg_01_data_prep.html
+
+https://databricks.com/notebooks/segment-p13n//sg_03_clustering.html#
+
+https://databricks.com/de/notebooks/segment-p13n/sg_02_feature_engineering.html
+
